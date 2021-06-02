@@ -1,4 +1,4 @@
-﻿using JogoDeXadrezModoConsoleCSharp.Tabuleiro;
+﻿using JogoDeXadrezModoConsoleCSharp.tabuleiro;
 using System;
 
 namespace JogoDeXadrezModoConsoleCSharp
@@ -7,9 +7,9 @@ namespace JogoDeXadrezModoConsoleCSharp
     {
         static void Main(string[] args)
         {
-            Posicao P = new Posicao(3, 4);
+            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
-            Console.WriteLine($"Posição: {P}");
+            Console.ReadLine();
         }
     }
 }

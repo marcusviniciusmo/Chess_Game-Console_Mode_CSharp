@@ -1,4 +1,4 @@
-﻿namespace JogoDeXadrezModoConsoleCSharp.Tabuleiro
+﻿namespace JogoDeXadrezModoConsoleCSharp.tabuleiro
 {
     class Posicao
     {
