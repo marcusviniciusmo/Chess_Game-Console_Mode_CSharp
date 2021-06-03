@@ -1,4 +1,5 @@
 ﻿using JogoDeXadrezModoConsoleCSharp.tabuleiro;
+using JogoDeXadrezModoConsoleCSharp.Xadrez;
 using System;
 
 namespace JogoDeXadrezModoConsoleCSharp
@@ -28,6 +29,15 @@ namespace JogoDeXadrezModoConsoleCSharp
 
             Console.WriteLine();
             Console.WriteLine("     A B C D E F G H");
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string str = Console.ReadLine();
+            char coluna = str[0];
+            int linha = int.Parse(str[1] + "");
+
+            return new PosicaoXadrez(coluna, linha);
         }
 
         public static void ImprimirPeca(Peca peca)
