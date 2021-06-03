@@ -10,16 +10,14 @@ namespace JogoDeXadrezModoConsoleCSharp
         {
             try
             {
-                //Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
-                //tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
-                //tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(1, 3));
-                //tabuleiro.ColocarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(2, 4));
+                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
+                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(1, 3));
+                tabuleiro.ColocarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(2, 4));
+                tabuleiro.ColocarPeca(new Rei(Cor.Branca, tabuleiro), new Posicao(3, 5));
 
-                //Tela.ImprimirTabuleiro(tabuleiro);
-                PosicaoXadrez posicaoXadrez = new PosicaoXadrez('c', 7);
-                Console.WriteLine(posicaoXadrez);
-                Console.WriteLine(posicaoXadrez.ToPosicao());
+                Tela.ImprimirTabuleiro(tabuleiro);
             }
             catch (TabuleiroException e)
             {
