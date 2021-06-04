@@ -103,6 +103,21 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
                         matriz[Posicao.Linha, Posicao.Coluna + 2] = true;
                     }
                 }
+
+                // #jogadaespecial Roque Grande
+                Posicao posicaoTorreRoqueGrande = new Posicao(Posicao.Linha, Posicao.Coluna - 4);
+
+                if (TesteTorreParaRoque(posicaoTorreRoqueGrande))
+                {
+                    Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna - 2);
+                    Posicao p3 = new Posicao(Posicao.Linha, Posicao.Coluna - 3);
+
+                    if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null && Tabuleiro.Peca(p3) == null)
+                    {
+                        matriz[Posicao.Linha, Posicao.Coluna - 2] = true;
+                    }
+                }
             }
 
             return matriz;
