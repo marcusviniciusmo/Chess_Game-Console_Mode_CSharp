@@ -119,7 +119,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
         {
             HashSet<Peca> aux = new HashSet<Peca>();
 
-            foreach (Peca peca in Capturadas)
+            foreach (Peca peca in Pecas)
             {
                 if (peca.Cor == cor)
                     aux.Add(peca);
