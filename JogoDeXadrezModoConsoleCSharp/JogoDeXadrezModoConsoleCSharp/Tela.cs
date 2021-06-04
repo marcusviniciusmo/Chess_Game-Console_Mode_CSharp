@@ -76,10 +76,13 @@ namespace JogoDeXadrezModoConsoleCSharp
                 }
                 else
                 {
-                    ConsoleColor aux = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    ConsoleColor auxPecaCor = Console.ForegroundColor;
+                    ConsoleColor auxFundoCor = Console.BackgroundColor;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.Yellow;
                     Console.Write(peca);
-                    Console.ForegroundColor = aux;
+                    Console.ForegroundColor = auxPecaCor;
+                    Console.BackgroundColor = auxFundoCor;
                 }
 
                 Console.Write(" ");

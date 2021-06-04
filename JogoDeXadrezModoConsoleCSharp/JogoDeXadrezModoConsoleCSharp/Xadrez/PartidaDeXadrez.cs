@@ -34,6 +34,18 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             MudaJogador();
         }
 
+        public void ValidarPosicaoDeOrigem(Posicao posicao)
+        {
+            if (Tabuleiro.Peca(posicao) == null)
+                throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
+
+            if (JogadorAtual != Tabuleiro.Peca(posicao).Cor)
+                throw new TabuleiroException("A peça de origem escolhida não é sua!");
+
+            if (!Tabuleiro.Peca(posicao).ExisteMovimentosPossiveis())
+                throw new TabuleiroException("Não há movimentos possíveis para a peça de origem!");
+        }
+
         private void MudaJogador()
         {
             if (JogadorAtual == Cor.Branca)
