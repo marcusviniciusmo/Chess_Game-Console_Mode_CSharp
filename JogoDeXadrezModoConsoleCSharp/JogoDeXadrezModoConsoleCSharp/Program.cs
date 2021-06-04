@@ -16,6 +16,9 @@ namespace JogoDeXadrezModoConsoleCSharp
                 {
                     Console.Clear();
                     Tela.ImprimirTabuleiro(partida.Tabuleiro);
+                    Console.WriteLine();
+                    Console.WriteLine($"Turno: {partida.Turno}");
+                    Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
 
                     Console.WriteLine();
                     Console.Write("Origem: ");
@@ -30,7 +33,7 @@ namespace JogoDeXadrezModoConsoleCSharp
                     Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
-                    partida.ExecutaMovimento(origem, destino);
+                    partida.RealizaJogada(origem, destino);
                 }
             }
             catch (TabuleiroException e)
