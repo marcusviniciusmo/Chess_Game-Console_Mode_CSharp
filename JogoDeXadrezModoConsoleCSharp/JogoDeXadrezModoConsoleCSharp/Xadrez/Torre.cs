@@ -22,7 +22,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             Posicao posicao = new Posicao(0, 0);
 
             // Acima
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna);
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
@@ -31,11 +31,11 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
                     break;
                 }
 
-                posicao.Linha -= -1;
+                posicao.Linha -= 1;
             }
 
             // Abaixo
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna);
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
@@ -48,7 +48,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             }
 
             // Direita
-            posicao.DefinirValores(posicao.Linha, posicao.Coluna + 1);
+            posicao.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
@@ -61,7 +61,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             }
 
             // Esquerda
-            posicao.DefinirValores(posicao.Linha, posicao.Coluna - 1);
+            posicao.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
@@ -70,7 +70,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
                     break;
                 }
 
-                posicao.Coluna -= -1;
+                posicao.Coluna -= 1;
             }
 
             return matriz;
