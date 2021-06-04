@@ -188,10 +188,11 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
                     {
                         if (matriz[i, j])
                         {
+                            Posicao origem = peca.Posicao;
                             Posicao destino = new Posicao(i, j);
-                            Peca pecaCapturada = ExecutaMovimento(peca.Posicao, destino);
+                            Peca pecaCapturada = ExecutaMovimento(origem, destino);
                             bool testeXeque = EstaEmXeque(cor);
-                            DesfazMovimento(peca.Posicao, destino, pecaCapturada);
+                            DesfazMovimento(origem, destino, pecaCapturada);
 
                             if (!testeXeque)
                             {
@@ -214,18 +215,12 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
         private void ColocarPecas()
         {
             ColocarNovaPeca('c', 1, new Torre(Cor.Branca, Tabuleiro));
-            ColocarNovaPeca('c', 2, new Torre(Cor.Branca, Tabuleiro));
-            ColocarNovaPeca('d', 2, new Torre(Cor.Branca, Tabuleiro));
-            ColocarNovaPeca('e', 1, new Torre(Cor.Branca, Tabuleiro));
-            ColocarNovaPeca('e', 2, new Torre(Cor.Branca, Tabuleiro));
             ColocarNovaPeca('d', 1, new Rei(Cor.Branca, Tabuleiro));
+            ColocarNovaPeca('h', 7, new Torre(Cor.Branca, Tabuleiro));
 
-            ColocarNovaPeca('c', 7, new Torre(Cor.Preta, Tabuleiro));
-            ColocarNovaPeca('c', 8, new Torre(Cor.Preta, Tabuleiro));
-            ColocarNovaPeca('d', 7, new Torre(Cor.Preta, Tabuleiro));
-            ColocarNovaPeca('e', 7, new Torre(Cor.Preta, Tabuleiro));
-            ColocarNovaPeca('e', 8, new Torre(Cor.Preta, Tabuleiro));
-            ColocarNovaPeca('d', 8, new Rei(Cor.Preta, Tabuleiro));
+
+            ColocarNovaPeca('a', 8, new Rei(Cor.Preta, Tabuleiro));
+            ColocarNovaPeca('b', 8, new Torre(Cor.Preta, Tabuleiro));            
         }
     }
 }
