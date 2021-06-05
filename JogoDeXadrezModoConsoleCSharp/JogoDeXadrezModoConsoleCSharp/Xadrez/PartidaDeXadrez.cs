@@ -12,6 +12,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
         private HashSet<Peca> Pecas;
         private HashSet<Peca> Capturadas;
         public bool Xeque { get; private set; }
+        private Peca VulneravelEnPassant;
 
         public PartidaDeXadrez()
         {
@@ -20,6 +21,7 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             JogadorAtual = Cor.Branca;
             Terminada = false;
             Xeque = false;
+            VulneravelEnPassant = null;
             Pecas = new HashSet<Peca>();
             Capturadas = new HashSet<Peca>();
 
@@ -119,6 +121,17 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             {
                 Turno++;
                 MudaJogador();
+            }
+
+            Peca peca = Tabuleiro.Peca(destino);
+            // #jogadaespecial En Passant
+            if (peca is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
+            {
+                VulneravelEnPassant = peca;
+            }
+            else
+            {
+                VulneravelEnPassant = null;
             }
         }
 
