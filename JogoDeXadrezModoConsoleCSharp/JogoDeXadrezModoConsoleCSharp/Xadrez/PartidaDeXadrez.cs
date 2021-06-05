@@ -60,6 +60,27 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
                 Tabuleiro.ColocarPeca(pecaTorre, destinoTorre);
             }
 
+            // #jogadaespecial En Passant
+            if (peca is Peao)
+            {
+                if (origem.Coluna != destino.Coluna && pecaCapturada == null)
+                {
+                    Posicao posicaoPeao;
+
+                    if (peca.Cor == Cor.Branca)
+                    {
+                        posicaoPeao = new Posicao(destino.Linha + 1, destino.Coluna);
+                    }
+                    else
+                    {
+                        posicaoPeao = new Posicao(destino.Linha - 1, destino.Coluna);
+                    }
+
+                    pecaCapturada = Tabuleiro.RetirarPeca(posicaoPeao);
+                    Capturadas.Add(pecaCapturada);
+                }
+            }
+
             return pecaCapturada;
         }
 
@@ -96,6 +117,26 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
                 Peca pecaTorre = Tabuleiro.RetirarPeca(destinoTorre);
                 pecaTorre.IncrementarQtdMovimentos();
                 Tabuleiro.ColocarPeca(pecaTorre, origemTorre);
+            }
+
+            // #jogadaespecial En Passant
+            if (peca is Peao)
+            {
+                if (origem.Coluna != destino.Coluna && pecaCapturada == VulneravelEnPassant)
+                {
+                    Peca peao = Tabuleiro.RetirarPeca(destino);
+                    Posicao posicaoPeao;
+                    if (peca.Cor == Cor.Branca)
+                    {
+                        posicaoPeao = new Posicao(3, destino.Coluna);
+                    }
+                    else
+                    {
+                        posicaoPeao = new Posicao(4, destino.Coluna);
+                    }
+
+                    Tabuleiro.ColocarPeca(peao, posicaoPeao);
+                }
             }
         }
 
