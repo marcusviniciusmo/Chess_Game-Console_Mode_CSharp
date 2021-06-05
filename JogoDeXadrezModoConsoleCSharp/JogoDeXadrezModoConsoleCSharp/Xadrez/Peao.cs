@@ -66,14 +66,14 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
 
                     if (Tabuleiro.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tabuleiro.Peca(esquerda) == Partida.VulneravelEnPassant)
                     {
-                        matriz[esquerda.Linha, esquerda.Coluna] = true;
+                        matriz[esquerda.Linha - 1, esquerda.Coluna] = true;
                     }
 
                     Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
 
                     if (Tabuleiro.PosicaoValida(direita) && ExisteInimigo(direita) && Tabuleiro.Peca(direita) == Partida.VulneravelEnPassant)
                     {
-                        matriz[direita.Linha, direita.Coluna] = true;
+                        matriz[direita.Linha - 1, direita.Coluna] = true;
                     }
                 }
             }
@@ -114,14 +114,14 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
 
                     if (Tabuleiro.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tabuleiro.Peca(esquerda) == Partida.VulneravelEnPassant)
                     {
-                        matriz[esquerda.Linha, esquerda.Coluna] = true;
+                        matriz[esquerda.Linha + 1, esquerda.Coluna] = true;
                     }
 
                     Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
 
                     if (Tabuleiro.PosicaoValida(direita) && ExisteInimigo(direita) && Tabuleiro.Peca(direita) == Partida.VulneravelEnPassant)
                     {
-                        matriz[direita.Linha, direita.Coluna] = true;
+                        matriz[direita.Linha + 1, direita.Coluna] = true;
                     }
                 }
             }
