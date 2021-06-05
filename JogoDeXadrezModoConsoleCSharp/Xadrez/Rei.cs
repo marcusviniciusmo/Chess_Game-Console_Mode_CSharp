@@ -11,13 +11,6 @@ namespace JogoDeXadrezModoConsoleCSharp.Xadrez
             Partida = partida;
         }
 
-        private bool PodeMover(Posicao posicao)
-        {
-            Peca peca = Tabuleiro.Peca(posicao);
-
-            return peca == null || peca.Cor != Cor;
-        }
-
         private bool TesteTorreParaRoque(Posicao posicao)
         {
             Peca peca = Tabuleiro.Peca(posicao);
